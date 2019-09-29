@@ -8,30 +8,30 @@ export default function reduxAjax({ requestAction, successAction, errorAction, m
     axiosArgs.headers = {
       'Content-Types': 'application/json',
       'token': TOKEN
-    };  
+    };
     axiosArgs.data = params;
   }
 
-  return async dispatch => {
+  return dispatch => {
     if (requestAction) {
       dispatch(requestAction(axiosArgs.params));
     }
 
-    const response = axios({
+    return axios({
       ...axiosArgs,
-      method,
-      url
-    });
+      url,
+      method
+    }).then(response => {
+      if (successAction) {
+        dispatch(successAction(response.data))
+      }
 
-    await response;
-
-    if (successAction) {
-      dispatch(successAction(response.data))
       return response.data;
-    }
 
-    if (errorAction) {
-      dispatch(errorAction(response.error));
-    }    
+    }).catch(error => {
+      if (errorAction) {
+        dispatch(errorAction(error));
+      }
+    });
   }
 }

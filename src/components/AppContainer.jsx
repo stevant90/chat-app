@@ -13,20 +13,29 @@ class AppContainer extends Component {
     this.props.getMessages();
   }
 
+  onMessageSave = (message) => {
+    const { postMessage } = this.props;
+
+    postMessage(message, () => this.props.getMessages());
+
+  }
+
   render() {
     const { messages, postMesage } = this.props;
+
+    console.log(messages);
 
     return (
       <div className="AppContainer">
         <ChatRoom messages={messages} />
-        <ChatForm saveMessage={postMesage} />
+        <ChatForm saveMessage={this.onMessageSave} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  messages: state.messages
+  messages: state.messages.messages,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -16,13 +16,16 @@ const errorPostMessages = error => ({
   error
 });
 
-export const postMessage = params => {
-  return reduxAjax({
-    requestAction: requestPostMessage,
-    successAction: receivedPostMessage,
-    errorAction: errorPostMessages,
-    method: 'POST',
-    url: `${BASE_URL}`,
-    params
-  });
+export const postMessage = (params, callback) => {
+  return dispatch => {
+    dispatch(reduxAjax({
+      requestAction: requestPostMessage,
+      successAction: receivedPostMessage,
+      errorAction: errorPostMessages,
+      method: 'POST',
+      url: `${BASE_URL}`,
+      params
+    })).then(() => callback())
+      .catch(() => { });
+  }
 }
