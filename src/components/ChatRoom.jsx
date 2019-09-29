@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Message from './Shared/Message';
+
 const ChatRoom = () => {
   return (
     <div className="ChatRoom">
-      Chat Room
+      <Message />
     </div>
   );
 }

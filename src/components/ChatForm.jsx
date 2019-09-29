@@ -12,11 +12,35 @@ export default class ChatForm extends Component {
     };
   }
 
+  handleInputChange = event => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value });
+  }
+
+  handleMessageSave = event => {
+    event.preventDefault();
+
+    this.setState({ message: '' });
+  }
+
   render() {
+    const { message } = this.state;
+
     return (
       <form className="ChatForm">
-        <FormInput />
-        <FormButton />
+        <FormInput 
+          className="ChatForm__input"
+          type="text"
+          value={message}
+          changeHandler={this.handleInputChange}
+          name="message"
+        />
+        <FormButton 
+          className="ChatForm__btn"
+          action={this.handleMessageSave}
+          btnText="Send"
+        />
       </form>
     );
   }

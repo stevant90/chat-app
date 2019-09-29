@@ -5,7 +5,7 @@ const FormInput = ({ className, type, value, changeHandler, name }) => (
     className={className}
     type={type}
     value={value}
-    changeHandler={changeHandler}
+    onChange={changeHandler}
     name={name}
   />
 );
