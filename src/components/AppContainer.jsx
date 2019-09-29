@@ -4,11 +4,15 @@ import { connect } from 'react-redux';
 import { getMessages } from '../Redux/actions/getMessages';
 import { postMessage } from '../Redux/actions/postMessage';
 
+import ChatRoom from './ChatRoom';
+import ChatForm from './ChatForm';
+
 class AppContainer extends Component {
   render() {
     return (
       <div className="AppContainer">
-        App Container
+        <ChatRoom />
+        <ChatForm />
       </div>
     );
   }

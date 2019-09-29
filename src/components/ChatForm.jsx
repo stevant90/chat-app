@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import FormInput from './Shared/FormInput';
+import FormButton from './Shared/FormButton';
 
 export default class ChatForm extends Component {
   constructor(props) {
@@ -13,7 +15,8 @@ export default class ChatForm extends Component {
   render() {
     return (
       <form className="ChatForm">
-        Form
+        <FormInput />
+        <FormButton />
       </form>
     );
   }
