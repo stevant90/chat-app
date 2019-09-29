@@ -1,0 +1,32 @@
+.Message {
+  border:  1px solid #d5dade;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  background-color: white;
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  &:last-child {
+    &.yellow-bgk {
+      background-color: #fcf6c5;
+      width: 76%;
+      margin-left: auto;
+    }
+  }
+}
+
+.Message__content {
+  padding: 16px;
+}
+
+.Messaege__text {
+  font-size: 18px;
+}
+
+.Message__author-name,
+.Message__time {
+  color: #9d9fa0;
+  font-size: 17px;
+}

@@ -11,6 +11,7 @@ const ChatRoom = ({ messages }) => {
   } 
   return (
     <div className="ChatRoom">
+      <div className="ChatRoom__bkg-mask"></div>
       {renderChatMessage()}
     </div>
   );

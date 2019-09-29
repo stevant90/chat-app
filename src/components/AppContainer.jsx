@@ -10,6 +10,7 @@ import ChatForm from './ChatForm';
 class AppContainer extends Component {
 
   componentDidMount() {
+    window.scrollTo(0,document.body.scrollHeight);
     this.props.getMessages();
   }
 
