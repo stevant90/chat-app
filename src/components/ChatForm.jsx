@@ -21,6 +21,14 @@ export default class ChatForm extends Component {
   handleMessageSave = event => {
     event.preventDefault();
 
+    const { saveMessage } = this.props;
+    const data = {
+      message: this.state.message,
+      author: 'Stevan'
+    };
+
+    saveMessage(data);
+
     this.setState({ message: '' });
   }
 
@@ -28,7 +36,7 @@ export default class ChatForm extends Component {
     const { message } = this.state;
 
     return (
-      <form className="ChatForm">
+      <form className={`ChatForm ${!message ? 'disabled' : ''}`}>
         <FormInput 
           className="ChatForm__input"
           type="text"

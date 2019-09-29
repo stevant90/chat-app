@@ -31,7 +31,7 @@ export default function reduxAjax({ requestAction, successAction, errorAction, m
     }
 
     if (errorAction) {
-      dispatch(errorAction(response.data.error));
+      dispatch(errorAction(response.error));
     }    
   }
 }

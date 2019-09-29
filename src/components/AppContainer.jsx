@@ -8,11 +8,18 @@ import ChatRoom from './ChatRoom';
 import ChatForm from './ChatForm';
 
 class AppContainer extends Component {
+
+  componentDidMount() {
+    this.props.getMessages();
+  }
+
   render() {
+    const { messages, postMesage } = this.props;
+
     return (
       <div className="AppContainer">
-        <ChatRoom />
-        <ChatForm />
+        <ChatRoom messages={messages} />
+        <ChatForm saveMessage={postMesage} />
       </div>
     );
   }
