@@ -9,7 +9,6 @@ export default function messages(state = initialState, action) {
     case actionTypes.REQUEST_MESSAGES:
       return { ...state };
     case actionTypes.RECEIVED_MESSAGES:
-      console.log(action.data)
       return {
         ...state,
         messages: action.data

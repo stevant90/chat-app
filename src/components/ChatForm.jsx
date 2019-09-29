@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { AUTHOR_NAME } from '../Redux/constants/apiInfo';
+
 import FormInput from './Shared/FormInput';
 import FormButton from './Shared/FormButton';
 
@@ -24,7 +26,7 @@ export default class ChatForm extends Component {
     const { saveMessage } = this.props;
     const data = {
       message: this.state.message,
-      author: 'Stevan'
+      author: AUTHOR_NAME
     };
 
     saveMessage(data);

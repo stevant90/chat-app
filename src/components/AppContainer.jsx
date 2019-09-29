@@ -14,17 +14,12 @@ class AppContainer extends Component {
     this.props.getMessages();
   }
 
-  onMessageSave = (message) => {
-    const { postMessage } = this.props;
-
-    postMessage(message, () => this.props.getMessages());
-
+  onMessageSave = data => {
+    this.props.postMesage(data, () => this.props.getMessages());
   }
 
   render() {
-    const { messages, postMesage } = this.props;
-
-    console.log(messages);
+    const { messages } = this.props;
 
     return (
       <div className="AppContainer">
@@ -41,7 +36,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getMessages: () => dispatch(getMessages()),
-  postMesage: params => dispatch(postMessage(params))
+  postMesage: (params, callback) => dispatch(postMessage(params, callback))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
